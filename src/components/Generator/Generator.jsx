@@ -1,5 +1,7 @@
+import "./Generator.css";
 import qrcode from "qrcode";
 import { useState } from "react";
+import { FaPlus } from "react-icons/fa";
 
 const Generator = () => {
   const [isAcitve, setIsActive] = useState(false);
@@ -13,6 +15,11 @@ const Generator = () => {
     e.target.value = newInputValue;
     console.log(newInputValue);
     setInputValue(newInputValue);
+  };
+
+  const handleButtonClick = () => {
+    const newIsActive = !isAcitve;
+    setIsActive(newIsActive);
   };
 
   const handleLightColorChange = (e) => {
@@ -47,32 +54,35 @@ const Generator = () => {
   return (
     <div className="generator">
       {isAcitve ? (
-        <>
-      <input
-        onInput={handleInputChange}
-        type="text"
-        placeholder="Enter QR Code Text"
-      />
+        <div className="generatorActive">
+          <input
+            onInput={handleInputChange}
+            type="text"
+            placeholder="Enter QR Code Text"
+          />
 
-      <input
-        onInput={handleLightColorChange}
-        type="color"
-        name="lightColor"
-        id="LightColor"
-        value={lightColor}
-      />
-      <input
-        onInput={handleDarkColorChange}
-        type="color"
-        name="darkColor"
-        id="DarkColor"
-        value={darkColor}
-        />
+          <input
+            onInput={handleLightColorChange}
+            type="color"
+            name="lightColor"
+            id="LightColor"
+            value={lightColor}
+          />
+          <input
+            onInput={handleDarkColorChange}
+            type="color"
+            name="darkColor"
+            id="DarkColor"
+            value={darkColor}
+          />
 
-      <button onClick={handleCreateQRCode}>Generate QR Code</button>
-        </>
+          <button onClick={handleCreateQRCode}>Generate QR Code</button>
+        </div>
       ) : (
-        <button onClick={() => setIsActive(!isAcitve)} className="generatorButton">Generate QR Code</button>
+        <button onClick={handleButtonClick} className="generatorButton">
+          <p>Generate QR Code</p>
+          <FaPlus className="generatorButtonIcon plusIcon" />
+        </button>
       )}
     </div>
   );

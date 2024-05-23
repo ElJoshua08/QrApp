@@ -15,10 +15,10 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --bg-color: #242424;
+  --bg-color: #131313;
   --color-primary: #C147E9;
   --color-secondary: #810CA8;
-  --color-tertiary: #2D033B;
+  --color-tertiary: #340544;
   --accent-color: #E5B8F4;
 }
 
@@ -39,7 +39,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem; 
+  gap: 1rem;          
   position: fixed;
 }
 
