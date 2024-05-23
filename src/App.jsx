@@ -1,7 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import { Generator } from "./components/Generator/Generator";
-import { SavedQRList } from "./components/SavedQRList/SavedQRList";
+import { QRsList } from "./components/QRsList/QRsList.jsx";
 
 const QRsTemplate = [
   {
@@ -26,14 +26,14 @@ function App() {
 
   return (
     <>
-      <h1>QR Code App</h1>
+      <h1 className="title">QR Code App</h1>
 
-      <Generator />
-      <SavedQRList>
+      <QRsList>
         {savedQRs.map((qr) => (
           <li key={qr.id}>{qr.qrCode}</li>
         ))}
-      </SavedQRList>
+      </QRsList>
+      <Generator />
     </>
   );
 }

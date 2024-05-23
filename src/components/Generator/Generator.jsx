@@ -2,6 +2,7 @@ import qrcode from "qrcode";
 import { useState } from "react";
 
 const Generator = () => {
+  const [isAcitve, setIsActive] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [lightColor, setLightColor] = useState("#ffffff");
   const [darkColor, setDarkColor] = useState("#000000");
@@ -24,35 +25,55 @@ const Generator = () => {
     setDarkColor(newColor);
   };
 
-
-
   const handleCreateQRCode = () => {
-    qrcode.toDataURL(inputValue, {
-      version: 2,
-      width: 256,
-      color: {
-        light: lightColor,
-        dark: darkColor,
+    qrcode.toDataURL(
+      inputValue,
+      {
+        version: 2,
+        width: 256,
+        color: {
+          light: lightColor,
+          dark: darkColor,
+        },
       },
-    },  (err, url) => {
-      if (err) throw err;
-      console.log(url);
-      return url;
-    });
+      (err, url) => {
+        if (err) throw err;
+        console.log(url);
+        return url;
+      }
+    );
   };
 
   return (
     <div className="generator">
+      {isAcitve ? (
+        <>
       <input
         onInput={handleInputChange}
         type="text"
         placeholder="Enter QR Code Text"
       />
 
-      <input onInput={handleLightColorChange} type="color" name="lightColor" id="LightColor" value={lightColor} />
-      <input onInput={handleDarkColorChange} type="color" name="darkColor" id="DarkColor" value={darkColor} />
+      <input
+        onInput={handleLightColorChange}
+        type="color"
+        name="lightColor"
+        id="LightColor"
+        value={lightColor}
+      />
+      <input
+        onInput={handleDarkColorChange}
+        type="color"
+        name="darkColor"
+        id="DarkColor"
+        value={darkColor}
+        />
 
       <button onClick={handleCreateQRCode}>Generate QR Code</button>
+        </>
+      ) : (
+        <button onClick={() => setIsActive(!isAcitve)} className="generatorButton">Generate QR Code</button>
+      )}
     </div>
   );
 };
