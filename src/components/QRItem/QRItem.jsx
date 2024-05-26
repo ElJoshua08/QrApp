@@ -1,8 +1,9 @@
-const QRItem = ({ children }) => {
+const QRItem = ({ qr }) => {
   return (
     <div className="qrItem">
-      <h1>QR Code</h1>
-      <ul> {children} </ul>
+      <img src={qr.image} alt="QR Code" />
+      <h1>{qr.title}</h1>
+      <p>{qr.date</p>
     </div>
   );
 };

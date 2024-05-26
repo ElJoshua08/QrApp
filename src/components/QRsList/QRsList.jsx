@@ -1,10 +1,18 @@
-import "./QRsList.css"
+import { FaArrowUp, FaArrowDown } from "react-icons/fa";
+import "./QRsList.css";
 
 const QRsList = ({ children }) => {
+  console.log(children);
+
   return (
-    <div className="listContainer">
-      <h1>Saved QR Codes</h1>
-      <ul> {children} </ul>
+    <div className="list">
+      <FaArrowUp className="listArrow arrowUp" />
+
+      <div className="QRsContainer">
+        <ul> {children} </ul>
+      </div>
+
+      <FaArrowDown className="listArrow arrowDown" />
     </div>
   );
 };

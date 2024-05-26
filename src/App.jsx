@@ -5,18 +5,18 @@ import { QRsList } from "./components/QRsList/QRsList.jsx";
 
 const QRsTemplate = [
   {
-    id: 1,
-    qrCode: "",
-    createdAt: new Date(),
+    image: "",
+    title: "",
+    date: new Date(),
   },
   {
-    id: 2,
-    qrCode: "",
-    createdAt: new Date(),
+    image: "",
+    title: "",
+    date: new Date(),
   },
   {
-    id: 3,
-    qrCode: "",
+    image: "https://i.imgur.com/q9w9h9a.png",
+    title: "QR Code",
     createdAt: new Date(),
   },
 ];
