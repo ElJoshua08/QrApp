@@ -27,6 +27,7 @@ const Generator = () => {
     const newColor = e.target.value;
     setLightColor(newColor);
   };
+  
 
   const handleDarkColorChange = (e) => {
     const newColor = e.target.value;
