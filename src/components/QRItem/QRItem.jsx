@@ -4,14 +4,16 @@ import "./QRItem.css";
 const QRItem = ({ qr }) => {
   return (
     <div className="qrItem">
-      <img src={qr.image} alt="QR Code" />
+      <div className="qrImageContainer">
+        <img className="qrImage" src={qr.image} alt="QR Code" />
+      </div>
 
-      <div className="data">
+      <div className="qrData">
         <h1>{qr.title}</h1>
 
         <div className="buttons">
-          <FaClone />
-          <FaDownload />
+          <FaClone className="button" />
+          <FaDownload className="button" />
         </div>
       </div>
     </div>
