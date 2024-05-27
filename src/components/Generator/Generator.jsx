@@ -1,14 +1,20 @@
 import "./Generator.css";
-import qrcode from "qrcode";
+import qrcode, { create } from "qrcode";
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 
-const Generator = () => {
+const Generator = ({ savedQRs, setSavedQRs }) => {
   const [isAcitve, setIsActive] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [lightColor, setLightColor] = useState("#ffffff");
   const [darkColor, setDarkColor] = useState("#000000");
+  const [qrUrl, setQrUrl] = useState("");
+
+  const handleSetFormActive = () => {
+    const newIsActive = !isAcitve;
+    setIsActive(newIsActive);
+  };
 
   const handleInputChange = (e) => {
     const newInputValue = e.target.value;
@@ -16,25 +22,26 @@ const Generator = () => {
     e.target.value = newInputValue;
     console.log(newInputValue);
     setInputValue(newInputValue);
-  };
-
-  const handleButtonClick = () => {
-    const newIsActive = !isAcitve;
-    setIsActive(newIsActive);
+    createQRCode();
   };
 
   const handleLightColorChange = (e) => {
     const newColor = e.target.value;
     setLightColor(newColor);
+    createQRCode();
   };
-  
 
   const handleDarkColorChange = (e) => {
     const newColor = e.target.value;
     setDarkColor(newColor);
+    createQRCode();
   };
 
-  const handleCreateQRCode = () => {
+  const createQRCode = () => {
+    if (!inputValue) {
+      return;
+    }
+
     qrcode.toDataURL(
       inputValue,
       {
@@ -48,16 +55,38 @@ const Generator = () => {
       (err, url) => {
         if (err) throw err;
         console.log(url);
-        return url;
+        setQrUrl(url);
       }
     );
+  };
+
+  const saveToQRsList = () => {
+    if (!inputValue) {
+      alert("Please enter a value to generate a QR code.");
+      return;
+    }
+
+    createQRCode();
+
+    const newQR = {
+      text: inputValue,
+      color: {
+        light: lightColor,
+        dark: darkColor,
+      },
+      url: qrUrl,
+    };
+
+    setSavedQRs([...savedQRs, newQR]);
+    setIsActive(false);
+    setInputValue("");
   };
 
   return (
     <div className="generator">
       <div className={`generatorActive ${isAcitve ? "active" : ""}`}>
         <FaXmark
-          onClick={handleButtonClick}
+          onClick={handleSetFormActive}
           className="generatorButtonIcon xmarkIcon"
         />
 
@@ -110,15 +139,21 @@ const Generator = () => {
           </div>
         </div>
 
+        {inputValue.length > 0 && (
+          <div className="preview">
+            <img src={qrUrl} alt="Preview" />
+          </div>
+        )}
+
         <button
           className="createQRCodeButton"
           id="CreateQRCodeButton"
-          onClick={handleCreateQRCode}
-        > 
+          onClick={saveToQRsList}
+        >
           Generate QR Code
         </button>
       </div>
-      <button onClick={handleButtonClick} className="generatorButton">
+      <button onClick={handleSetFormActive} className="generatorButton">
         <p>Generate QR Code</p>
         <FaPlus className="generatorButtonIcon plusIcon" />
       </button>

@@ -22,7 +22,7 @@ const QRsTemplate = [
 ];
 
 function App() {
-  const [savedQRs, setSavedQRs] = useState(QRsTemplate);
+  const [savedQRs, setSavedQRs] = useState([]);
 
   return (
     <>
@@ -33,7 +33,7 @@ function App() {
           <QRItem key={index} qr={qr} />
         ))}
       </QRsList>
-      <Generator />
+      <Generator savedQRs={savedQRs} setSavedQRs={setSavedQRs} />
     </>
   );
 }
