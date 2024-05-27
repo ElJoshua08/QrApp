@@ -27,11 +27,13 @@ function App() {
         </QRsList>
       ) : (
         <div className="textContainer">
-          <h1>Qreate your first QR!</h1>
+          <h1>
+            <strong>Qreate </strong>your first
+          </h1>
+          <img src="/qrIcon.svg" alt="QR Code" />
         </div>
       )}
       <Generator savedQRs={savedQRs} setSavedQRs={setSavedQRs} />
-
     </>
   );
 }
