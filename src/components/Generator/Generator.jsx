@@ -11,6 +11,11 @@ const Generator = ({ savedQRs, setSavedQRs }) => {
   const [darkColor, setDarkColor] = useState("#000000");
   const [qrUrl, setQrUrl] = useState("");
 
+  const saveToLocalStorage = (savedQRs) => {
+    console.log(savedQRs);
+    localStorage.setItem("qrs_v1", JSON.stringify(savedQRs));
+  };
+
   const handleSetFormActive = () => {
     const newIsActive = !isAcitve;
     setIsActive(newIsActive);
@@ -71,9 +76,12 @@ const Generator = ({ savedQRs, setSavedQRs }) => {
       image: qrUrl,
     };
 
-    setSavedQRs([...savedQRs, newQR]);
+    const newQRs = [...savedQRs, newQR];
+
+    setSavedQRs(newQRs);
     setIsActive(false);
     setInputValue("");
+    saveToLocalStorage(newQRs);
   };
 
   return (
