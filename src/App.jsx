@@ -33,6 +33,13 @@ function App() {
           <img src="/qrIcon.svg" alt="QR Code" />
         </div>
       )}
+
+      <h6 className="author">
+        Made with <strong>love</strong> by{" "}
+        <a target="_blank" href="https://github.com/ElJoshua08">
+          Joshua
+        </a>
+      </h6>
       <Generator savedQRs={savedQRs} setSavedQRs={setSavedQRs} />
     </>
   );
