@@ -15,11 +15,9 @@ function App() {
     return [];
   });
 
-  console.log(savedQRs.length);
-
   return (
     <>
-      <h1 className="title">QR Code App</h1>
+      <h1 className="title">Qreate</h1>
 
       {savedQRs.length > 0 ? (
         <QRsList>
@@ -29,7 +27,7 @@ function App() {
         </QRsList>
       ) : (
         <div className="textContainer">
-          <h1>Create your first QR code!</h1>
+          <h1>Create your first QR!</h1>
         </div>
       )}
       <Generator savedQRs={savedQRs} setSavedQRs={setSavedQRs} />
