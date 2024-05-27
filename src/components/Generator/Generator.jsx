@@ -66,15 +66,9 @@ const Generator = ({ savedQRs, setSavedQRs }) => {
       return;
     }
 
-    createQRCode();
-
     const newQR = {
-      text: inputValue,
-      color: {
-        light: lightColor,
-        dark: darkColor,
-      },
-      url: qrUrl,
+      title: inputValue,
+      image: qrUrl,
     };
 
     setSavedQRs([...savedQRs, newQR]);
