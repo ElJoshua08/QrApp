@@ -51,3 +51,12 @@ body {
   font-size: 1.8rem;
   color: var(--color-primary);
 }
+
+.textContainer { 
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.5;
+}
