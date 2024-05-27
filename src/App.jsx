@@ -27,7 +27,7 @@ function App() {
         </QRsList>
       ) : (
         <div className="textContainer">
-          <h1>Create your first QR!</h1>
+          <h1>Qreate your first QR!</h1>
         </div>
       )}
       <Generator savedQRs={savedQRs} setSavedQRs={setSavedQRs} />
