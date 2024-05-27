@@ -31,6 +31,7 @@ function App() {
         </div>
       )}
       <Generator savedQRs={savedQRs} setSavedQRs={setSavedQRs} />
+
     </>
   );
 }

@@ -47,9 +47,17 @@ body {
 
 .title {
   top: 1rem;
-  letter-spacing: 3px;
-  font-size: 1.8rem;
-  color: var(--color-primary);
+  letter-spacing: 2px;
+  font-size: 2.1rem;
+  color: var(--color-secondary);
+
+  &::first-letter {
+    text-transform: uppercase;
+    font-size: 2.7rem;
+    letter-spacing: 3px;
+    font-weight: 900;
+    color: var(--color-primary);
+  }
 }
 
 .textContainer { 
@@ -59,4 +67,8 @@ body {
   justify-content: center;
   text-align: center;
   line-height: 1.5;
+
+  strong {
+    font-weight: 600;
+  }
 }
