@@ -2,6 +2,15 @@ import { FaClone, FaDownload } from "react-icons/fa";
 import "./QRItem.css";
 
 const QRItem = ({ qr }) => {
+
+
+  const handleDownload = () => {
+    let link = document.createElement("a");
+    link.href = qr.image;
+    link.download = qr.title;
+    link.click();
+  };
+
   return (
     <div className="qrItem">
       <div className="qrImageContainer">
@@ -13,7 +22,7 @@ const QRItem = ({ qr }) => {
 
         <div className="buttons">
           <FaClone className="button" />
-          <FaDownload className="button" />
+          <FaDownload onClick={handleDownload} className="button" />
         </div>
       </div>
     </div>
