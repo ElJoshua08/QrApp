@@ -12,7 +12,6 @@ const Generator = ({ savedQRs, setSavedQRs }) => {
   const [qrUrl, setQrUrl] = useState("");
 
   const saveToLocalStorage = (savedQRs) => {
-    console.log(savedQRs);
     localStorage.setItem("qrs_v1", JSON.stringify(savedQRs));
   };
 
@@ -25,7 +24,6 @@ const Generator = ({ savedQRs, setSavedQRs }) => {
     const newInputValue = e.target.value;
 
     e.target.value = newInputValue;
-    console.log(newInputValue);
     setInputValue(newInputValue);
     createQRCode();
   };
@@ -59,7 +57,6 @@ const Generator = ({ savedQRs, setSavedQRs }) => {
       },
       (err, url) => {
         if (err) throw err;
-        console.log(url);
         setQrUrl(url);
       }
     );
@@ -74,6 +71,11 @@ const Generator = ({ savedQRs, setSavedQRs }) => {
     const newQR = {
       title: inputValue,
       image: qrUrl,
+      color: {
+        light: lightColor,
+        dark: darkColor,
+      },
+      createdAt: new Date(),
     };
 
     const newQRs = [...savedQRs, newQR];
@@ -156,7 +158,7 @@ const Generator = ({ savedQRs, setSavedQRs }) => {
         </button>
       </div>
       <button onClick={handleSetFormActive} className="generatorButton">
-        <p>Generate QR Code</p>
+        <p>{"Let's Qreate!"}</p>
         <FaPlus className="generatorButtonIcon plusIcon" />
       </button>
     </div>
