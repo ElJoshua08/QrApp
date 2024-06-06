@@ -1,0 +1,30 @@
+.author {
+  position: absolute;
+  z-index: -1;
+  transition: all 250ms ease;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 1.3rem;
+  bottom: 0rem;
+  right: inherit;
+  text-align: center;
+
+  strong {
+    color: var(--color-secondary);
+    font-weight: 900;
+  }
+
+  a {
+    color: var(--color-primary-lighter);
+    font-weight: 900;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 999;
+  }
+
+  @media screen and (min-width: 660px) {
+    font-size: 1.4rem;
+    bottom: 0.4rem;
+    right: 1rem;
+  }
+}

@@ -1,12 +1,14 @@
-import "./App.css";
-import { useState } from "react";
-import { Generator } from "./components/Generator/Generator";
-import { QRsList } from "./components/QRsList/QRsList.jsx";
-import { QRItem } from "./components/QRItem/QRItem.jsx";
+import './App.css';
+import { useState } from 'react';
+import { Generator } from './components/Generator/Generator';
+import { QRsList } from './components/QRsList/QRsList.jsx';
+import { QRItem } from './components/QRItem/QRItem.jsx';
+import { Author } from './components/Author/Author.jsx';
+import { NoQRs } from './components/NoQRs/NoQRs.jsx';
 
 function App() {
   const [savedQRs, setSavedQRs] = useState(() => {
-    let qrs = localStorage.getItem("qrs_v1");
+    let qrs = localStorage.getItem('qrs_v1');
 
     if (qrs) {
       return JSON.parse(qrs);
@@ -22,25 +24,24 @@ function App() {
       {savedQRs.length > 0 ? (
         <QRsList>
           {savedQRs.map((qr, index) => (
-            <QRItem key={index} qr={qr} />
+            <QRItem
+              key={index}
+              qr={qr}
+            />
           ))}
         </QRsList>
       ) : (
-        <div className="textContainer">
-          <h1>
-            <strong>Qreate </strong>your first
-          </h1>
-          <img src="/qrIcon.svg" alt="QR Code" />
-        </div>
+        <NoQRs /> 
       )}
 
-      <h6 className="author">
-        Made with <strong>love</strong> by{" "}
-        <a target="_blank" href="https://github.com/ElJoshua08">
-          Joshua
-        </a>
-      </h6>
-      <Generator savedQRs={savedQRs} setSavedQRs={setSavedQRs} />
+      <Author
+        authorName={'Joshua'}
+        authorLink={'https://github.com/ElJoshua08'}
+      />
+      <Generator
+        savedQRs={savedQRs}
+        setSavedQRs={setSavedQRs}
+      />
     </>
   );
 }
