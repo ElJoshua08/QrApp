@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+:root {
+  font-family: "Nunito", Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --bg-color: #131313;
+  --color-primary: #c147e9;
+  --color-secondary: #810ca8;
+  --color-secondary-dark: #5a008f;
+  --color-tertiary: #340544;
+  --color-tertiary-dark: #1d002b;
+  --accent-color: #e5b8f4;
+}
+
+body {
+  background-color: var(--bg-color);
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+

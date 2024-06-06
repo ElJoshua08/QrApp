@@ -1,0 +1,30 @@
+.noQr {
+  flex-grow: 1;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.5;
+  font-weight: 400;
+  gap: 2rem;
+
+  h1 {
+    margin: 0;
+    margin-right: 2rem;
+  }
+
+  strong {
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: var(--color-primary);
+  }
+
+  img {
+    position: relative;
+    max-width: 200px;
+    transform: rotateZ(10deg);
+  }
+}
