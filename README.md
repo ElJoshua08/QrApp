@@ -1,2 +1,4 @@
-# QRCode
-A QR Generator
+
+# qrCodeReact
+A simple and customizable qr Generator made with react
+

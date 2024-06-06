@@ -1,0 +1,177 @@
+@keyframes moveUp {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveDown {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.generator {
+  width: 280px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.generatorButton {
+  background-color: var(--color-tertiary);
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-around;
+  border-radius: 0.5rem;
+  border: 2px solid transparent;
+  transition: all 350ms ease-in;
+
+  & > p {
+    transition: all 350ms ease-in;
+    opacity: 0.7;
+  }
+
+  & > .plusIcon {
+    opacity: 0.7;
+    font-size: 1.5rem;
+    transition: all 350ms ease;
+  }
+
+  &:hover {
+    border-color: var(--color-primary);
+
+    & > p {
+      opacity: 1;
+    }
+
+    & > .plusIcon {
+      opacity: 1;
+      transform: rotate(180deg);
+      color: var(--color-primary);
+    }
+  }
+}
+
+.generatorActive {
+  display: flex;
+  width: 280px;
+  height: calc(100% - 2rem);
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  background-color: var(--color-tertiary);
+  border-radius: 0.5rem;
+  top: 1rem;
+  transition: all 350ms ease-in;
+  opacity: 0;
+  transform: scaleY(0);
+  z-index: 999;
+
+  & > .xmarkIcon {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 1.5rem;
+    color: #fff;
+    opacity: 0.7;
+    cursor: pointer;
+    transition: all 350ms ease-in;
+
+    &:hover {
+      transform: rotate(360deg);
+      color: var(--color-primary);
+      opacity: 1;
+    }
+  }
+
+  & > .QRInput {
+    margin-top: 1rem;
+    width: 80%;
+    padding: 0.5rem;
+    font-weight: 500;
+    border: 0;
+    border-bottom: 2px solid var(--color-tertiary-dark);
+    color: var(--color-tertiary);
+    background-color: transparent;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    transition: all 350ms ease-in;
+    outline: none;
+    color: #fff;
+
+    &:focus,
+    &:hover {
+      border-bottom-color: var(--color-primary);
+    }
+  }
+
+  & > .createQRCodeButton {
+    position: absolute;
+    margin-bottom: 1rem;
+    width: calc(100% - 2rem);
+    bottom: 0;
+    padding: 0.8rem 0.5rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #bbb;
+    border: 0;
+    outline: 0;
+    border-radius: 0.5rem;
+    background-color: var(--color-secondary-dark);
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    transition: all 350ms ease-in;
+    outline: none;
+    cursor: pointer;
+
+    &:focus,
+    &:hover {
+      color: #fff;
+      background-color: var(--color-secondary);
+    }
+  }
+
+  &.active {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+.colorPicker {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 40%;
+
+  & > .colorInput {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    padding: 0;
+  }
+}
