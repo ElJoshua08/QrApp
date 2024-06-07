@@ -5,6 +5,7 @@ import { QRsList } from './components/QRsList/QRsList.jsx';
 import { QRItem } from './components/QRItem/QRItem.jsx';
 import { Author } from './components/Author/Author.jsx';
 import { NoQRs } from './components/NoQRs/NoQRs.jsx';
+import { Logo } from './components/Logo/Logo.jsx';
 
 function App() {
   const [savedQRs, setSavedQRs] = useState(() => {
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <>
-      <h1 className="title">Qreate</h1>
+      <Logo />
 
       {savedQRs.length > 0 ? (
         <QRsList>
@@ -31,7 +32,7 @@ function App() {
           ))}
         </QRsList>
       ) : (
-        <NoQRs /> 
+        <NoQRs />
       )}
 
       <Author
