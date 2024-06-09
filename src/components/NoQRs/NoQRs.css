@@ -13,7 +13,6 @@
 
   h1 {
     margin: 0;
-    margin-right: 2rem;
   }
 
   strong {
@@ -26,5 +25,20 @@
     position: relative;
     max-width: 200px;
     transform: rotateZ(10deg);
+  }
+
+  @media screen and (min-width: 792px) {
+    flex-direction: row;
+    gap: 3rem;
+
+    h1 {
+      font-size: 4rem;
+      line-height: 1;
+    }
+
+    strong {
+      font-weight: 700;
+      font-size: 5rem;
+    }
   }
 }
