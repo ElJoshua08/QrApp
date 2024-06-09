@@ -27,7 +27,7 @@
     transform: rotateZ(10deg);
   }
 
-  @media screen and (min-width: 640px) {
+  @media screen and (min-width: 792px) {
     flex-direction: row;
     gap: 3rem;
 
